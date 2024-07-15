@@ -25,7 +25,7 @@ Name=$(curl -sS https://raw.githubusercontent.com/aripTaz/permission/main/ip | g
 ipsaya=$(wget -qO- ifconfig.me)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
-data_ip="https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip"
+data_ip="https://raw.githubusercontent.com/aripTaz/permission/main/ip"
 checking_sc() {
 useexp=$(curl -sS $data_ip | grep $ipsaya | awk '{print $3}')
 if [[ $date_list < $useexp ]]; then
@@ -43,123 +43,6 @@ echo -e "$COLOR1│             \033[0;32mContact Your Admin ${NC}              
 echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
 key
 fi
-}
-function key(){
-rm -rf /root/rmbl
-echo -e  "${COLOR1}╭══════════════════════════════════════════╮${NC}"
-echo -e  "${COLOR1}│              PASWORD SCRIPT RMBL VPN     │${NC}"
-echo -e  "${COLOR1}╰══════════════════════════════════════════╯${NC}"
-echo " "
-read -rp "Masukan Key Kamu Disini ctrl + c Exit : " -e kode
-cd
-if [ -z $kode ]; then
-echo -e "KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
-key
-fi
-clear
-LIST=$(curl -sS https://raw.githubusercontent.com/RMBL-VPN/license/main/key | grep $kode | awk '{print $2}')
-Key=$(curl -sS https://raw.githubusercontent.com/RMBL-VPN/license/main/key | grep $kode | awk '{print $3}')
-KEY2=$(curl -sS https://raw.githubusercontent.com/RMBL-VPN/license/main/key | grep $kode | awk '{print $4}')
-ADMIN=$(curl -sS https://raw.githubusercontent.com/RMBL-VPN/license/main/key | grep $kode | awk '{print $5}')
-TOTALIP=$(curl -sS https://raw.githubusercontent.com/RMBL-VPN/license/main/key | grep $kode | awk '{print $6}')
-U2=$(curl -sS https://raw.githubusercontent.com/aripTaz/permission/main/ip | grep $MYIP | awk '{print $2}')
-U3=$(curl -sS https://raw.githubusercontent.com/aripTaz/permission/main/ip | grep $MYIP | awk '{print $3}')
-U4=$(curl -sS https://raw.githubusercontent.com/aripTaz/permission/main/ip | grep $MYIP | awk '{print $4}')
-U5=$(curl -sS https://raw.githubusercontent.com/aripTaz/permission/main/ip | grep $MYIP | awk '{print $5}')
-U6=$(curl -sS https://raw.githubusercontent.com/aripTaz/permission/main/ip | grep $MYIP | awk '{print $6}')
-MYIP=$(curl -sS ipv4.icanhazip.com)
-web=$(curl -sS  http://rmb.vip.app/ress | grep $kode | awk '{print $3}')
-web2=$(curl -sS http://rmb.vip.app/ress | grep $kode | awk '{print $2}')
-web3=$(curl -sS http://rmb.vip.app/ress | grep $kode | awk '{print $4}')
-web4=$(curl -sS http://rmb.vip.app/ress | grep $kode | awk '{print $5}')
-web5=$(curl -sS http://rmb.vip.app/ress | grep $kode | awk '{print $6}')
-userscript=$(curl -sS https://pastebin.com/raw/YZFr8JDy | awk '{print $1}')
-emailscript=$(curl -sS https://pastebin.com/raw/YZFr8JDy | awk '{print $2}')
-tokenscript=$(curl -sS https://pastebin.com/raw/YZFr8JDy | awk '{print $3}')
-userkey=$(curl -sS https://pastebin.com/raw/unGxyHYK | awk '{print $1}')
-emailkey=$(curl -sS https://pastebin.com/raw/unGxyHYK | awk '{print $2}')
-tokenkey=$(curl -sS https://pastebin.com/raw/unGxyHYK | awk '{print $3}')
-if [[ $kode == $web ]]; then
-MYIP=$(curl -sS ipv4.icanhazip.com)
-hhari=$(date -d "$web3 days" +"%Y-%m-%d")
-mkdir /root/rmbl
-cd /root/rmbl
-wget https://raw.githubusercontent.com/aripTaz/permission/main/ip >/dev/null 2>&1
-if [ "$U4" = "$MYIP" ]; then
-sed -i "s/### $U2 $U3 $U4 $U5/### $U2 $hhari $U4 $U5/g" /root/rmbl/ipmini
-else
-echo "### $author $hhari $MYIP $web2" >> ipmini
-fi
-sleep 0.5
-rm -rf .git
-git config --global user.email "${emailscript}" >/dev/null 2>&1
-git config --global user.name "${userscript}" >/dev/null 2>&1
-git init >/dev/null 2>&1
-git add ipmini
-git commit -m register >/dev/null 2>&1
-git branch -M main >/dev/null 2>&1
-git remote add origin https://github.com/${userscript}/permission >/dev/null 2>&1
-git push -f https://${tokenscript}@github.com/${userscript}/permission >/dev/null 2>&1
-rm -rf /root/rmbl
-rm -rf /etc/github
-clear
-elif [[ $kode == $Key ]]; then
-MYIP=$(curl -sS ipv4.icanhazip.com)
-author4=$(cat /etc/profil)
-hhari=$(date -d "$KEY2 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
-wget https://raw.githubusercontent.com/aripTaz/permission/main/ip >/dev/null 2>&1
-if [ "$U4" = "$MYIP" ]; then
-sed -i "s/### $U2 $U3 $U4 $U5/### $U2 $hhari $U4 $U5/g" /root/rmbl/ipmini
-else
-echo "### $author $hhari $MYIP $LIST" >> ipmini
-fi
-sleep 0.5
-rm -rf .git
-git config --global user.email "${emailscript}" >/dev/null 2>&1
-git config --global user.name "${userscript}" >/dev/null 2>&1
-git init >/dev/null 2>&1
-git add ipmini
-git commit -m register >/dev/null 2>&1
-git branch -M main >/dev/null 2>&1
-git remote add origin https://github.com/${userscript}/permission >/dev/null 2>&1
-git push -f https://${tokenscript}@github.com/${userscript}/permission >/dev/null 2>&1
-sleep 0.5
-rm ipmini
-wget https://raw.githubusercontent.com/RMBL-VPN/license/main/key >/dev/null 2>&1
-if [ "$ADMIN" = "ON" ]; then
-sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/rmbl/key
-else
-sed -i "/^### $LIST $Key $KEY2/d" /root/rmbl/key
-fi
-sleep 0.5
-rm -rf .git
-git config --global user.email "${emailkey}" >/dev/null 2>&1
-git config --global user.name "${userkey}" >/dev/null 2>&1
-git init >/dev/null 2>&1
-git add key
-git commit -m register >/dev/null 2>&1
-git branch -M main >/dev/null 2>&1
-git remote add origin https://github.com/${userkey}/license >/dev/null 2>&1
-git push -f https://${tokenkey}@github.com/${userkey}/license >/dev/null 2>&1
-rm -rf /root/rmbl
-rm -rf /etc/github
-else
-echo -e "KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
-sleep 1
-key
-fi
-echo -e  "${COLOR1}╭══════════════════════════════════════════╮${NC}"
-echo -e  "${COLOR1}│              INFO LICENSE KEY            │${NC}"
-echo -e  "${COLOR1}╰══════════════════════════════════════════╯${NC}"
-echo -e "SUCCES MASUKKAN KEY SILAHKAN DITUNGGU"
-echo -e "2 MENIT AGAR SERVER KEREFRESH"
-read -n 1 -s -r -p "Press any key to Exit"
-systemctl restart xray
-reboot
-exit
-clear
 }
 madmin=$(curl -sS https://raw.githubusercontent.com/aripTaz/permission/main/ip | grep $MYIP | awk '{print $5}')
 checking_sc
