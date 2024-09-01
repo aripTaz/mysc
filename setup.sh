@@ -62,6 +62,35 @@ clear
 author=$(cat /etc/profil)
 echo ""
 echo ""
+# Fungsi untuk mengecek apakah key ada di dalam file di GitHub
+function check_key_in_github() {
+    # URL dari file di GitHub yang berisi key
+    GITHUB_FILE_URL="https://raw.githubusercontent.com/aripTaz/permission/main/ip"
+
+    # Key yang akan diperiksa
+    read -rp "Masukan Key Kamu Disini: " key_to_check
+
+    # Mendownload isi file dari GitHub
+    file_content=$(curl -sS "$GITHUB_FILE_URL")
+
+    # Memeriksa apakah file ditemukan
+    if [ $? -ne 0 ]; then
+        echo "File tidak ditemukan di GitHub. Skrip berhenti."
+        exit 1
+    fi
+
+    # Memeriksa apakah key ada di dalam file
+    if echo "$file_content" | grep -q "### $key_to_check"; then
+        echo "Key ditemukan dalam file di GitHub. Melanjutkan proses..."
+        return 0
+    else
+        echo "Key tidak ditemukan dalam file di GitHub. Skrip berhenti."
+        exit 1
+    fi
+}
+
+# Memanggil fungsi untuk mengecek key
+check_key_in_github
 
 function domain(){
 fun_bar() {
