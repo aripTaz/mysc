@@ -88,7 +88,6 @@ function check_key_in_github() {
         exit 1
     fi
 }
-
 # Memanggil fungsi untuk mengecek key
 check_key_in_github
 
