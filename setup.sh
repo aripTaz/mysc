@@ -65,7 +65,7 @@ echo ""
 # Fungsi untuk mengecek apakah key ada di dalam file di GitHub
 function check_key_in_github() {
     # URL dari file di GitHub yang berisi key
-    GITHUB_FILE_URL="https://raw.githubusercontent.com/aripTaz/permission/main/ip"
+    GITHUB_FILE_URL="https://raw.githubusercontent.com/aripTaz/license/main/keys"
 
     # Key yang akan diperiksa
     read -rp "Masukan Key Kamu Disini: " key_to_check
@@ -80,7 +80,7 @@ function check_key_in_github() {
     fi
 
     # Memeriksa apakah key ada di dalam file
-    if echo "$file_content" | grep -q "### $key_to_check"; then
+    if echo "$file_content" | grep -Fxq "### $key_to_check"; then
         echo "Key ditemukan dalam file di GitHub. Melanjutkan proses..."
         return 0
     else
